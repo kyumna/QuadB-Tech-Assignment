@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Car from './carousel'
-import styles from './first.module.css'
-import card1 from '../../images/card1.jpg'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Car from './carousel';
+import styles from './first.module.css';
+import card1 from '../../images/card1.jpg';
+
 
 import Button from 'react-bootstrap/Button';
 
@@ -30,13 +31,13 @@ function First() {
         {users.map((user) => (
           <div key={user.show.id} className={styles.card}>
             <div className={styles.imgdiv}>
-              <img className={styles.cardImg} src={card1}></img></div>
+              <img className={styles.cardImg} alt='' src={card1}></img></div>
             <div className={styles.text}>
               <h2>{user.show.name}</h2>
               <p className={styles.small}>Type: {user.show.type}</p>
               <p className={styles.small}>Language: {user.show.language}</p>
            
-              <Link to='/summary' state={{ from: [user.show.summary, user.show.name , user.show.genres , user.show.status] }}> <Button variant="warning"> Summary</Button>{' '}</Link>
+              <Link to='/summary' state={{ from: [user.show.summary, user.show.name , user.show.genres , user.show.status ] }}> <Button variant="warning"> Summary</Button>{' '}</Link>
             </div>
           </div>
         ))}</div>
