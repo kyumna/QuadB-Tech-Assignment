@@ -1,31 +1,37 @@
 import { useLocation } from 'react-router-dom';
 import Container from '../modal/container';
 import { createContext } from 'react';
-
-export  const UserContext = createContext()
+import style from './second.module.css';
+import card1 from '../../images/card1.jpg';
+import DOMPurify from 'dompurify';
+export const UserContext = createContext();
 
 function Second() {
-    const triggerText = 'Open Form';
-
-  
-
-    const onSubmit = (event) => {
-        event.preventDefault(event);
-        localStorage.setItem(event.target.email.value, JSON.stringify([event.target.name.value, event.target.email.value]));
-        console.log(event.target.name.value);
-        console.log(event.target.email.value);
-    };
-    const location = useLocation()
-    const { from } = location.state
-
-
+    const sanitizeHTML = (html) => {
+        return { __html: DOMPurify.sanitize(html) };
+      };
+    
+    const location = useLocation();
+    const { from } = location.state;
 
     return (
-        <div>
-            {from[0]}
-            <UserContext.Provider value={from[1]}>
-                <Container triggerText={triggerText} onSubmit={onSubmit}/>
-            </UserContext.Provider>
+        <div className={style.parent}>
+        <div className={style.left}>
+            <div  dangerouslySetInnerHTML={sanitizeHTML(from[0])}>
+               
+            </div>
+            <div className={style.addons}>
+            <div >Genre: {from[2][0]}, {from[2][1]}</div>
+            <div>Status: {from[3]}</div>
+                
+            </div>
+                <UserContext.Provider value={from[1]}>
+                    <Container />
+                </UserContext.Provider>
+                </div>
+            <div className={style.right}>
+            <img src={card1}></img>
+            </div>
 
         </div>
     )

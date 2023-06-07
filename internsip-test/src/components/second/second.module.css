@@ -1,0 +1,47 @@
+.parent{
+    /* border: 2px solid red; */
+    display: flex;
+    
+    overflow-x: hidden;
+    justify-content: center;
+    align-self: center;
+  height: 90vh;
+  flex-wrap: wrap-reverse;
+    margin-top: 2rem;
+}
+.right{
+    /* border: 2px solid white; */
+    width: 45%;
+    align-self: center;
+}
+.left{
+    /* border: 2px solid hotpink;  */
+    width: 40%;
+    padding: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.right img{
+    height: 50vh !important;
+    width: 70%;
+
+}
+.addons{
+    color: grey !important;
+    margin-bottom: 1rem;
+}
+@media only screen and (max-width:988px){
+    .left{
+        width: 90%;
+    }
+    .right{
+        width: 90%;
+    }
+    .right img{
+        height: 50vh !important;
+        width: 90%;
+    
+    }
+}
